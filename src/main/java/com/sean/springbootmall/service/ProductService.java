@@ -3,7 +3,11 @@ package com.sean.springbootmall.service;
 import com.sean.springbootmall.dto.ProductRequest;
 import com.sean.springbootmall.model.Product;
 
+import java.util.List;
+
 public interface ProductService {
+
+    List<Product> getProducts();
 
     Product getProductById(Integer productId);
 
