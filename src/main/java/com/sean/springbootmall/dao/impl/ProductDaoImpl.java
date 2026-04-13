@@ -11,13 +11,14 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Component
+@Repository
 public class ProductDaoImpl implements ProductDao {
 
     @Autowired
@@ -32,7 +33,7 @@ public class ProductDaoImpl implements ProductDao {
         //查詢條件
         sql = addFilteringSql(sql, map, productQueryParams);
 
-        Integer total = namedParameterJdbcTemplate.queryForObject(sql, map, Integer.class);
+        Integer total = namedParameterJdbcTemplate.queryForObject(sql, map, Integer.class); //queryForObject 用來取 count
 
         return total;
     }
